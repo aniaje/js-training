@@ -81,9 +81,6 @@ function minMinMax(array) {
   }
   return [smallest, absent, largest];
   // const minimumAbsent = Math.min(...absent);
-
-  console.log([smallest, minimumAbsent, largest]);
-  console.log(absent);
 }
 
 // Opposites Attract
@@ -756,13 +753,6 @@ function getSum(a, b) {
       .toUpperCase();
   }
 
-  // Ones and Zeros
-
-  const binaryArrayToNumber = (arr) => {
-    const binaryString = arr.join("");
-    return parseInt(binaryString, 2);
-  };
-
   // A Needle in the Haystack
 
   function findNeedle(haystack) {
@@ -852,24 +842,6 @@ function getSum(a, b) {
       evenIn.reduce((a, b) => a + b, 0) - oddOut.reduce((a, b) => a + b, 0)
     );
   };
-
-  // Convert a Boolean to a String
-
-  function booleanToString(b) {
-    return b.toString();
-  }
-
-  // Convert a String to a Number!
-
-  const stringToNumber = function (str) {
-    return Number(str);
-  };
-
-  // Beginner Series #2 Clock
-
-  function past(h, m, s) {
-    return h * 3600000 + m * 60000 + s * 1000;
-  }
 
   // Returning Strings
 
@@ -1190,7 +1162,6 @@ function smallWordHelper(sentence) {
         let abc = item.match(vowels);
 
         abc.forEach((vowel) => (item = item.replace(vowel, "")));
-        console.log(item);
       }
 
       return item;
@@ -1215,10 +1186,10 @@ function missingNo(nums) {
     i++;
   }
 
-  console.log();
   return missing;
 }
 //key value pairs
+//dodawanie
 
 missingNo([
   9, 45, 53, 10, 100, 30, 85, 72, 69, 93, 98, 27, 73, 82, 91, 60, 5, 79, 88, 18,
@@ -1228,3 +1199,84 @@ missingNo([
   55, 51, 43, 97, 42, 86, 49, 31, 20, 75, 70, 34, 33, 38, 8, 15, 62, 35, 61, 99,
   16,
 ]);
+
+// Convert a Boolean to a String
+
+function booleanToString(b) {
+  return b.toString();
+}
+
+// Convert a String to a Number!
+
+const stringToNumber = function (str) {
+  return Number(str);
+};
+
+// Beginner Series #2 Clock
+
+function past(h, m, s) {
+  return h * 3600000 + m * 60000 + s * 1000;
+}
+
+// Ones and Zeros
+
+const binaryArrayToNumber = (arr) => {
+  const binaryString = arr.join("");
+  return parseInt(binaryString, 2);
+};
+
+// Last Survivor
+
+function lastSurvivor(letters, coords) {
+  if (coords.length > 0) {
+    let coordinate = coords[0];
+    letters = letters.split("");
+    letters.splice(coordinate, 1);
+    letters = letters.join("");
+    coords.splice(0, 1);
+    return lastSurvivor(letters, coords);
+  } else {
+    return letters;
+  }
+}
+
+console.log(lastSurvivor("kbc", [0, 1]));
+
+// Convert an array of strings to array of numbers
+
+function toNumberArray(stringarray) {
+  return stringarray.map((item) => Number(item));
+}
+
+toNumberArray(["1.1", "2.2", "3.3"]);
+
+// pick a set of first elements
+let arr = ["a", "b", "c", "d", "e"];
+
+function first(arr, n) {
+  const result = arr.slice(0, n);
+}
+
+first([...arr], 2);
+
+// Nth Smallest Element (Array Series #4)
+
+function nthSmallest(arr, pos) {
+  return arr.sort((a, b) => a - b)[pos - 1];
+}
+
+nthSmallest([2, 169, 13, -5, 0, -1], 4);
+
+// Sum of differences in array
+
+function sumOfDifferences(arr) {
+  let sorted = arr.sort((a, b) => b - a);
+  let sum = 0;
+  sorted.forEach((num, i) => {
+    let pairSum = i !== sorted.length - 1 ? num - sorted[i + 1] : 0;
+    sum += pairSum;
+  });
+  return sum;
+}
+
+sumOfDifferences([1, 2, 10]);
