@@ -156,39 +156,6 @@ function countBy(x, n) {
   return arr;
 }
 
-// String repeat
-
-function repeatStr(n, s) {
-  let result = "";
-  for (i = 0; i < n; i++) {
-    result += s;
-  }
-
-  return result;
-}
-
-// Testing 1-2-3
-
-const number = (array) => {
-  return array.map((item, index) => `${index + 1}: ${item}`);
-};
-
-// Find the unique number
-
-function findUniq(arr) {
-  let [a, b] = [...new Set(arr)];
-  return arr.indexOf(a) === arr.lastIndexOf(a) ? a : b;
-}
-17;
-8;
-// Powers of 2
-
-function powersOfTwo(n) {
-  let arr = [];
-  for (let i = 0; i <= n; i++) arr[i] = 2 ** i;
-  return arr;
-}
-
 // Sort Numbers
 
 function solution(nums) {
@@ -279,7 +246,7 @@ const humanYearsCatYearsDogYears = (humanYears) => {
 
   const catYears = [...firstYears].fill(4, 2);
   const dogYears = [...firstYears].fill(5, 2);
-  console.log(catYears.reduce((a, b) => a + b, 0));
+  catYears.reduce((a, b) => a + b, 0);
 
   return [
     humanYears,
@@ -1240,7 +1207,7 @@ function lastSurvivor(letters, coords) {
   }
 }
 
-console.log(lastSurvivor("kbc", [0, 1]));
+lastSurvivor("kbc", [0, 1]);
 
 // Convert an array of strings to array of numbers
 
@@ -1280,3 +1247,62 @@ function sumOfDifferences(arr) {
 }
 
 sumOfDifferences([1, 2, 10]);
+
+// String repeat
+
+function repeatStr(n, s) {
+  let result = "";
+  for (i = 0; i < n; i++) {
+    result += s;
+  }
+
+  return result;
+}
+
+// Testing 1-2-3
+
+const number = (array) => {
+  return array.map((item, index) => `${index + 1}: ${item}`);
+};
+
+// Find the unique number
+
+function findUniq(arr) {
+  let [a, b] = [...new Set(arr)];
+  return arr.indexOf(a) === arr.lastIndexOf(a) ? a : b;
+}
+
+// Powers of 2
+
+function powersOfTwo(n) {
+  let arr = [];
+  for (let i = 0; i <= n; i++) arr[i] = 2 ** i;
+  return arr;
+}
+
+// #The Hashtag Generator
+const generateHashtag = (str) => {
+  const result = str.split("").reduce((hash, letter, index, array) => {
+    letter =
+      index == 0 || array[index - 1] == " " ? letter.toUpperCase() : letter;
+    return letter != " " ? hash + letter : hash;
+  }, "#");
+  return result.length == 1 || result.length > 140 ? false : result;
+};
+
+generateHashtag("Do   We   have A Hashtag");
+
+// Unique In Order
+
+const uniqueInOrder = (iterable) => {
+  iterable = Array.isArray(iterable) ? iterable : iterable.split("");
+  return iterable.reduce((uniqueArray, letter) => {
+    const prevLetter = uniqueArray.length
+      ? uniqueArray[uniqueArray.length - 1]
+      : null;
+
+    return prevLetter !== letter ? [...uniqueArray, letter] : uniqueArray;
+  }, []);
+};
+
+uniqueInOrder("aahfffsgggfhhnjrkkke");
