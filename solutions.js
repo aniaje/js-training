@@ -1306,3 +1306,25 @@ const uniqueInOrder = (iterable) => {
 };
 
 uniqueInOrder("aahfffsgggfhhnjrkkke");
+
+// What is between?
+
+function between(a, b) {
+  let arr = [];
+  for (let i = a; i <= b; i++) {
+    arr.push(i);
+  }
+  return arr;
+}
+between(1, 4);
+
+function between2(a, b) {
+  const betweenArray = [];
+
+  while (a <= b) {
+    betweenArray.push(a);
+    a++;
+  }
+
+  return betweenArray;
+}
